@@ -1,0 +1,42 @@
+{
+  "name": "aquaalert-backend",
+  "version": "1.0.0",
+  "description": "AquaAlert - Cloud-Based Water Supply Disruption Reporting System Backend",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "node --watch src/app.js",
+    "init-db": "node src/database/initDb.js",
+    "test": "node tests/api.test.js"
+  },
+  "keywords": [
+    "aquaalert",
+    "water-disruption",
+    "express",
+    "mysql",
+    "aws",
+    "rds",
+    "s3",
+    "sns"
+  ],
+  "author": "AquaAlert Team",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.577.0",
+    "@aws-sdk/client-sns": "^3.577.0",
+    "@aws-sdk/client-ssm": "^3.577.0",
+    "@aws-sdk/s3-request-presigner": "^3.577.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.2.0",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "mysql2": "^3.9.7",
+    "sqlite3": "^5.1.7"
+  }
+}
+
