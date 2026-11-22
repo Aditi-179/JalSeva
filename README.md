@@ -1,3 +1,5 @@
+# OFFCAMPUS CODE-  GAYJ36
+
 # AquaAlert — Cloud-Based Water Supply Disruption Reporting System
 
 AquaAlert is a production-ready, cloud-architected civic-tech platform that empowers citizens to report localized water supply disruptions (pipeline leaks, contamination, low pressure, and complete outages) with photographic evidence, and provides municipal water authorities with a real-time, centralized incident management and tracking dashboard.
