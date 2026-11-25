@@ -1,8 +1,8 @@
 # OFFCAMPUS CODE-  ANXHDG
 
-# AquaAlert — Cloud-Based Water Supply Disruption Reporting System
+# JalSeva — Cloud-Based Water Supply Disruption Reporting System
 
-AquaAlert is a production-ready, cloud-architected civic-tech platform that empowers citizens to report localized water supply disruptions (pipeline leaks, contamination, low pressure, and complete outages) with photographic evidence, and provides municipal water authorities with a real-time, centralized incident management and tracking dashboard.
+JalSeva is a production-ready, cloud-architected civic-tech platform that empowers citizens to report localized water supply disruptions (pipeline leaks, contamination, low pressure, and complete outages) with photographic evidence, and provides municipal water authorities with a real-time, centralized incident management and tracking dashboard.
 
 ---
 
@@ -14,7 +14,7 @@ In many municipal regions, citizen water supply complaints are fragmented across
 - Inability for residents to verify whether an issue has already been reported in their neighborhood.
 - No photographic evidence trail for field repair crews.
 
-**AquaAlert** solves this by establishing a single cloud-backed incident reporting, verification, and resolution management pipeline.
+**JalSeva** solves this by establishing a single cloud-backed incident reporting, verification, and resolution management pipeline.
 
 ---
 
@@ -70,7 +70,7 @@ In many municipal regions, citizen water supply complaints are fragmented across
 
 ## 4. System Architecture
 
-AquaAlert runs on Amazon EC2 hosting both the React client build and Express backend inside a Public Subnet, connecting across VPC boundaries to an Amazon RDS MySQL instance residing strictly within Private Subnets.
+JalSeva runs on Amazon EC2 hosting both the React client build and Express backend inside a Public Subnet, connecting across VPC boundaries to an Amazon RDS MySQL instance residing strictly within Private Subnets.
 
 ```mermaid
 flowchart TD
@@ -88,7 +88,7 @@ flowchart TD
       end
 
       subgraph PrivateSubnets["Private Subnet Group (10.0.2.0/24 & 10.0.3.0/24)"]
-        RDS[("Amazon RDS MySQL 8.0<br>aquaalert_db")]
+        RDS[("Amazon RDS MySQL 8.0<br>JalSeva_db")]
       end
     end
 
@@ -113,7 +113,7 @@ flowchart TD
 ## 5. Project Directory Structure
 
 ```
-AquaAlert/
+JalSeva/
 ├── backend/
 │   ├── data/                 # Local SQLite database (when MySQL is offline)
 │   ├── sql/
@@ -206,7 +206,7 @@ AquaAlert/
 
 ### 1. Clone & Configure Backend
 ```bash
-cd AquaAlert/backend
+cd JalSeva/backend
 npm install
 cp .env.example .env
 ```
@@ -227,7 +227,7 @@ npm start
 ### 4. Start Frontend Development Server
 In a separate terminal:
 ```bash
-cd AquaAlert/frontend
+cd JalSeva/frontend
 npm install
 npm run dev
 # Frontend runs at http://localhost:3000
@@ -250,8 +250,8 @@ For complete step-by-step console instructions, refer to [`aws/deployment-guide.
 - [x] **Amazon RDS**: MySQL 8.0 `db.t4g.micro` or `db.t3.micro` Single-AZ with automated 7-day backups
 - [x] **Amazon S3**: Private bucket with Block Public Access enabled and CORS configured
 - [x] **IAM Role**: Attached to EC2 with least-privilege permissions (`aws/iam-policy.json`)
-- [x] **SSM Parameter Store**: SecureStrings stored for `/aquaalert/prod/db/password` and `/aquaalert/prod/jwt/secret`
-- [x] **Amazon SNS**: Topic `AquaAlert-Incidents-Topic` with confirmed email subscriptions
+- [x] **SSM Parameter Store**: SecureStrings stored for `/JalSeva/prod/db/password` and `/JalSeva/prod/jwt/secret`
+- [x] **Amazon SNS**: Topic `JalSeva-Incidents-Topic` with confirmed email subscriptions
 - [x] **CloudWatch**: High CPU alarm (> 80% for 5 min) triggering SNS alert ([`aws/cloudwatch-guide.md`](aws/cloudwatch-guide.md))
 - [x] **AWS Budgets**: Configured at $10.00/month limit for zero-cost surprises ([`aws/cost-estimation.md`](aws/cost-estimation.md))
 
